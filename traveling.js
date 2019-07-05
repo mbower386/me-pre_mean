@@ -58,8 +58,14 @@ bees.west = pooh;
 var eeyore = {
   character: "Eeyore"
 }
-eeyore.south.kanga;
+eeyore.south = kanga;
 eeyore.east = heffalumps;
+
+var kanga = {
+  character: "Kanga"
+}
+kanga.south = chris;
+kanga.north = eeyore;
 
 var heffalumps = {
   character: "Heffalumps"
@@ -67,9 +73,26 @@ var heffalumps = {
 heffalumps.west = eeyore;
 
 var player = {
-  location: ""
+  location: tigger
 }
 
-function playGame (player) {
-  
+function move(location) {
+  if (location == "north" && player.north != null) {
+    location = player.north;
+    console.log("You are now at " + location + "'s house.");
+  }
+  if (location == "south" && player.south != null) {
+    location = player.south;
+    console.log("You are now at " + location + "'s house.");
+  }
+  if (location == "east" && player.east != null) {
+    location = player.east;
+    console.log("You are now at " + location + "'s house.");
+  }
+  if (location == "west" && player.west != null) {
+    location = player.west;
+    console.log("You are now at " + location + "'s house.");
+  } else {
+    console.log("You may not go that way!");
+  }
 }
